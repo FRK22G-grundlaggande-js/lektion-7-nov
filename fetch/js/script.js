@@ -32,9 +32,11 @@ async function fetchData(url){
         const resp = await fetch(url);
         const data = await resp.json();
         console.log(data);
+        
         if(data.detail === 'Not found'){
            throw Error(data.detail) // Kasta ett fel!
         };
+        
         return data;
 }
 
