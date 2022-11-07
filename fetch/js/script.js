@@ -29,22 +29,22 @@ btn.addEventListener('click', async function() {
 
 // Vid klick, anropa servern
 async function fetchData(url){
-        const resp = await fetch(url);
-        const data = await resp.json();
-        console.log(data);
+        const resp = await fetch(url); // Anropa API
+        const data = await resp.json(); // Konvertera från stream till JSON
+        console.log(data); 
         
-        if(data.detail === 'Not found'){
+        if(data.detail === 'Not found'){ // Om "not found"
            throw Error(data.detail) // Kasta ett fel!
         };
         
-        return data;
+        return data; // Returnera datan ur funktionen
 }
 
 
 function updateDOM(data){
     
-    main.innerHTML = '';
-    let template = '';
+    main.innerHTML = ''; // Rensa main
+    let template = ''; // Skapa tom Template som ersätts med olika strings beroende 
 
 
     // Is is a person?
